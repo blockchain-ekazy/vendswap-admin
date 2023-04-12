@@ -46,9 +46,27 @@ export function OrderConfirmation() {
   }
 
   const sign = async () => {
+    if (
+      (parseInt(buyerAmount) + parseInt(sellerAmount)) * 1e6 !=
+      order["Escrow Amount"]
+    ) {
+      toast.error(
+        "Both Amounts should add up to $" + order["Escrow Amount"] / 1e6
+      );
+      return;
+    }
+
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     let m = await provider.send("eth_requestAccounts", []);
     m = m[0];
+
+    if (
+      m.toLowerCase() !=
+      "0x86fc9DbcE9e909c7AB4D5D94F07e70742E2d144A".toLowerCase()
+    ) {
+      toast.error("Connect with Admin Wallet!");
+      return;
+    }
 
     const signer = provider.getSigner();
 
@@ -63,6 +81,14 @@ export function OrderConfirmation() {
     );
 
     order.signature = signature1;
+
+    console.log(
+      order.id,
+      String(buyerAmount * 1e6),
+      String(sellerAmount * 1e6)
+    );
+    console.log(signature1);
+
     order.progress.stages["Admin Confirmation"] = new Date(
       Date.now()
     ).toLocaleString();
@@ -86,6 +112,14 @@ export function OrderConfirmation() {
     <>
       <Card className="mx-3 mt-8 mb-6 lg:mx-4">
         <CardBody className="p-4">
+          <Typography
+            variant="small"
+            color="blue-gray"
+            className="font-semibold capitalize"
+          >
+            Total Escrow Amount: ${order["Escrow Amount"] / 1e6}
+          </Typography>
+          <br />
           <div className="grid grid-cols-1 gap-4">
             <Input
               type="number"

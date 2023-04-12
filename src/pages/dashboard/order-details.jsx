@@ -162,13 +162,13 @@ export function OrderDetails() {
                   color="blue-gray"
                   className="font-semibold capitalize"
                 >
-                  Seller Claimed Escrow at:
+                  Seller Withdrawn Escrow at:
                 </Typography>
                 <Typography
                   variant="small"
                   className="font-normal text-blue-gray-500"
                 >
-                  {order.progress.stages["Seller Claimed Escrow"]}
+                  {order.progress.stages["Seller Withdrawn Escrow"]}
                 </Typography>
               </div>
               <div className="grid grid-cols-2">
@@ -389,7 +389,22 @@ export function OrderDetails() {
                   variant="small"
                   className="font-normal text-blue-gray-500"
                 >
-                  {parseInt(order["Escrow Amount"] / 1e18)}
+                  ${parseInt(order["Escrow Amount"] / 1e6)}
+                </Typography>
+              </div>
+              <div className="grid grid-cols-2">
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="font-semibold capitalize"
+                >
+                  Platform Fee:
+                </Typography>
+                <Typography
+                  variant="small"
+                  className="font-normal text-blue-gray-500"
+                >
+                  ${parseInt(order["Platform Fee"] / 1e6)}
                 </Typography>
               </div>
               <div className="grid grid-cols-2">
@@ -480,7 +495,7 @@ export function OrderDetails() {
                   variant="small"
                   className="font-normal text-blue-gray-500"
                 >
-                  {order["Seller Amount"] / 1e6} USDT
+                  ${order["Seller Amount"] / 1e6}
                 </Typography>
               </div>
               <div className="grid grid-cols-2">
@@ -495,7 +510,7 @@ export function OrderDetails() {
                   variant="small"
                   className="font-normal text-blue-gray-500"
                 >
-                  {order["Buyer Amount"] / 1e6} USDT
+                  ${order["Buyer Amount"] / 1e6}
                 </Typography>
               </div>
             </div>
@@ -751,7 +766,7 @@ export function OrderDetails() {
                   <div className="relative p-1 after:absolute after:-bottom-6 after:left-2/4 after:h-0 after:w-0.5 after:-translate-x-2/4 after:bg-blue-gray-50 after:content-['']">
                     <CircleStackIcon
                       className={`!h-5 !w-5 ${
-                        order.progress.stages["Seller Claimed Escrow"] ==
+                        order.progress.stages["Seller Withdrawn Escrow"] ==
                         "Incomplete"
                           ? "text-blue-gray-500"
                           : "text-green-600"
@@ -764,16 +779,16 @@ export function OrderDetails() {
                       color="blue-gray"
                       className="block font-medium"
                     >
-                      Seller Claimed Escrow
+                      Seller Withdrawn Escrow
                     </Typography>
                     <Typography
                       as="span"
                       variant="small"
                       className="text-xs font-medium text-blue-gray-500"
                     >
-                      {/* {order.progress.stages["Seller Claimed Escrow"]} */}
+                      {/* {order.progress.stages["Seller Withdrawn Escrow"]} */}
 
-                      {order.progress.stages["Seller Claimed Escrow"] ==
+                      {order.progress.stages["Seller Withdrawn Escrow"] ==
                         "Incomplete" &&
                       user.uid == order.user &&
                       order.progress.status >= "70" ? (
@@ -790,7 +805,7 @@ export function OrderDetails() {
                           Withdraw
                         </Button>
                       ) : (
-                        order.progress.stages["Seller Claimed Escrow"]
+                        order.progress.stages["Seller Withdrawn Escrow"]
                       )}
                     </Typography>
                   </div>
