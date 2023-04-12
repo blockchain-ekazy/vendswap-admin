@@ -1,6 +1,7 @@
 // prettier-ignore
-export const vendswap = "0x7b1a3751b816d2fC4EDcE83603631d18fa3E17d5";
+export const vendswap = "0xCbA8770F62ca424a2F085CE8bc70ac93cF549F73";
 export const usdt = "0x7c87561b129f46998fc9Afb53F98b7fdaB68696f";
+export const usdc = "0x156bE79B809DE4C0776445Ff1a50817E24c1f4D4";
 export const usdtAMOUNT = 500 * 1e6;
 export const NETWORK = "5";
 export const NETWORKNAME = "Goerli";
