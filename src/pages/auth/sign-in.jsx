@@ -34,7 +34,7 @@ export function SignIn() {
 
   const check_login_status = async () => {
     if (isLoggedIn()) {
-      navigate("/dashboard/home");
+      navigate("/dashboard");
     }
   };
 
