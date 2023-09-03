@@ -44,11 +44,11 @@ export function OrderConfirmation() {
 
   const sign = async () => {
     if (
-      (parseInt(buyerAmount) + parseInt(sellerAmount)) * 1e6 !=
+      (Number(buyerAmount) + Number(sellerAmount)) * 1e6 <=
       order["Escrow Amount"]
     ) {
       toast.error(
-        "Both Amounts should add up to $" + order["Escrow Amount"] / 1e6
+        "Both Amounts should be less than $" + order["Escrow Amount"] / 1e6
       );
       return;
     }
