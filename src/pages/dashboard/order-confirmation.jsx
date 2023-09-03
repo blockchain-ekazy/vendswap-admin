@@ -9,9 +9,6 @@ import {
   Radio,
 } from "@material-tailwind/react";
 
-import { QrCodeIcon, XCircleIcon } from "@heroicons/react/24/outline";
-
-import BarcodeScannerComponent from "react-qr-barcode-scanner";
 import { useNavigate } from "react-router-dom";
 import { ProfileInfoCard } from "@/widgets/cards";
 import { UserAuth } from "@/context/AuthContext";
