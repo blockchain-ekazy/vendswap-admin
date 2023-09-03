@@ -44,7 +44,7 @@ export function OrderConfirmation() {
 
   const sign = async () => {
     if (
-      (Number(buyerAmount) + Number(sellerAmount)) * 1e6 <=
+      (Number(buyerAmount) + Number(sellerAmount)) * 1e6 >=
       order["Escrow Amount"]
     ) {
       toast.error(
