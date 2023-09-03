@@ -693,7 +693,7 @@ export function OrderDetails() {
                     >
                       {order.progress.stages["Admin Confirmation"] ==
                         "Incomplete" &&
-                      user.email == "admin@gmail.com" &&
+                      user.email == "stephenson77@hotmail.com" &&
                       order.progress.status == "55" ? (
                         <Button
                           variant="filled"

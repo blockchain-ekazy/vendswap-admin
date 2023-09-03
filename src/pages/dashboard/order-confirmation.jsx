@@ -62,7 +62,7 @@ export function OrderConfirmation() {
 
     if (
       m.toLowerCase() !=
-      "0x86fc9DbcE9e909c7AB4D5D94F07e70742E2d144A".toLowerCase()
+      "0x081a9D96f2F0e88a4Fd0541260677E5A58628A2B".toLowerCase()
     ) {
       toast.error("Connect with Admin Wallet!");
       return;
