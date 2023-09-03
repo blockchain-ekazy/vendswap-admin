@@ -691,6 +691,10 @@ export function OrderDetails() {
                       variant="small"
                       className="text-xs font-medium text-blue-gray-500"
                     >
+                      {/* {JSON.stringify(order.progress.stages)}
+                      {JSON.stringify(order.progress.status)}
+                      {user.email} */}
+
                       {order.progress.stages["Admin Confirmation"] ==
                         "Incomplete" &&
                       user.email == "stephenson77@hotmail.com" &&
